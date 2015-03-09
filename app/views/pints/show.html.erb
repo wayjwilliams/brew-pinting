@@ -1,12 +1,20 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Back', pints_path %>
 
-<%= image_tag @pint.image.url(:medium) %>
-<p>
-  <strong>Description:</strong>
-  <%= @pint.description %>
-</p>
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @pint.image.url(:medium) %>
+      </div><!-- panel heading -->
+      <div class="panel-body">
+        <p><%= @pint.description %></p>
+        <p><strong><%= @pint.user.email if @pint.user %></strong></p>
 
-<% if @pint.user == current_user %>
-  <%= link_to 'Edit', edit_pint_path(@pint) %>
-<% end %>
-  <%= link_to 'Back', pints_path %>
+        <% if @pint.user == current_user %>
+          <%= link_to 'Edit', edit_pint_path(@pint) %>
+        <% end %>
+
+      </div><!-- panel body -->
+    </div><!-- panel default -->
+  </div><!-- col-md -->
+</div><!-- row -->
