@@ -7,7 +7,7 @@
         <%= image_tag @pint.image.url(:medium) %>
       </div><!-- panel heading -->
       <div class="panel-body">
-        <p><strong><%= @pint.user.email if @pint.user %></strong></p>
+        <p><strong><%= @pint.user.name if @pint.user %></strong></p>
         <p><%= @pint.description %></p>
 
         <% if @pint.user == current_user %>
