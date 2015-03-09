@@ -7,8 +7,10 @@
       <div class="box panel panel-default">
         <%= link_to image_tag(pint.image.url(:medium)), pint %>
         <div class="panel-body">
-          <p><strong><%= pint.user.name if pint.user %></strong></p>
-          <p><%= pint.description %></p>
+          <div class="actions">
+            <p class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
+            <p><strong>Uploaded by <%= pint.user.name if pint.user %></strong></p>
+          </div>
           <% if pint.user == current_user %>
             <div class="actions">
               <%= link_to edit_pint_path(pint) do %>
