@@ -11,14 +11,14 @@ class PintsController < ApplicationController
   end
 
   def new
-    @pint = current_user.pints.build
+    @pint = Pint.new
   end
 
   def edit
   end
 
   def create
-    @pint = current_user.pints.build(pint_params)
+    @pint = Pint.new(pint_params)
     if @pint.save
       redirect_to @pint, notice: 'Pint was successfully created!'
     else
