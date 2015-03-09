@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
+<%= render 'pages/home' unless user_signed_in? %>
 
-<h1>Index o'Pints</h1>
+<h1>Gallery o'Pints</h1>
 
   <div id="pints" class="transitions-enabled">
     <% @pints.each do |pint| %>
@@ -9,7 +9,6 @@
         <div class="panel-body">
           <strong><%= pint.user.email if pint.user %></strong>
           <%= pint.description %>
-          <%= link_to 'Show', pint %>
           <% if pint.user == current_user %>
             <div class="actions">
               <%= link_to edit_pint_path(pint) do %>
@@ -25,4 +24,7 @@
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="center">
+    <%= will_paginate @pints, renderer: BootstrapPagination::Rails %>
   </div>
