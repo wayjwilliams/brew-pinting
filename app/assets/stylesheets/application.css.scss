@@ -8,6 +8,7 @@ $navbar-inverse-link-color: white;
 $brand-primary:             #f39c12;
 $jumbotron-bg:              #bdc3c7;
 
+@import 'masonry/transitions';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
@@ -17,4 +18,17 @@ $jumbotron-bg:              #bdc3c7;
 
 .navbar-brand {
      font-weight: bold;
+}
+
+#pints {
+  margin: 0 auto;
+}
+
+.box {
+  margin: 5px;
+  width: 214px;
+}
+
+.box img {
+  width: 100%;
 }
