@@ -1,7 +1,7 @@
 class PintsController < ApplicationController
-  #before_action :set_pint, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!, except: [:index, :show]
-  #before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :set_pint, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @pints = Pint.all
@@ -11,14 +11,14 @@ class PintsController < ApplicationController
   end
 
   def new
-    @pint = Pint.new
+    @pint = current_user.pints.build
   end
 
   def edit
   end
 
   def create
-    @pint = Pint.new(pint_params)
+    @pint = current_user.pints.build(pint_params)
     if @pint.save
       redirect_to @pint, notice: 'Pint was successfully created!'
     else
