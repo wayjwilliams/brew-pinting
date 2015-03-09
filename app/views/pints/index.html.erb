@@ -7,13 +7,19 @@
       <div class="box panel panel-default">
         <%= link_to image_tag(pint.image.url(:medium)), pint %>
         <div class="panel-body">
-          <%= pint.description %>
           <strong><%= pint.user.email if pint.user %></strong>
+          <%= pint.description %>
           <%= link_to 'Show', pint %>
           <% if pint.user == current_user %>
             <div class="actions">
-              <%= link_to 'Edit', edit_pint_path(pint) %>
-              <%= link_to 'Destroy', pint, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to edit_pint_path(pint) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit
+              <% end %>
+              <%= link_to pint, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="glyphicon glyphicon-trash"></span>
+                Delete
+              <% end %>
             </div>
           <% end %>
         </div>
