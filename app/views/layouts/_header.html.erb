@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BrewPinting</a>
+      <a class="navbar-brand" href="#">BrewPinting
+        <% if user_signed_in? %>
+        <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+          <% end %>
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,7 +27,6 @@
             <% end %>
           </li>
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-          <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Log In", new_user_session_path %></li>
