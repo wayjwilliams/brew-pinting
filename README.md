@@ -10,5 +10,5 @@
   <li>Devise</li>
   <li>AWS S3</li>
   <li>Will_Paginate</li>
-  <li>html/css/obvs</li>
+  <li>HTML/CSS/SASS</li>
 </ul>
