@@ -1,16 +1,15 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
 <h1>Gallery o'Pints</h1>
+<p>(...or Whatever You're Into!)</p>
 
   <div id="pints" class="transitions-enabled">
     <% @pints.each do |pint| %>
       <div class="box panel panel-default">
         <%= link_to image_tag(pint.image.url(:medium)), pint %>
         <div class="panel-body">
-          <div class="actions">
-            <p class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></p>
+            <p class="round-image-50"><%= image_tag(pint.user.avatar.url(:thumb)) %></p>
             <p><strong>Uploaded by <%= pint.user.name if pint.user %></strong></p>
-          </div>
           <% if pint.user == current_user %>
             <div class="actions">
               <%= link_to edit_pint_path(pint) do %>

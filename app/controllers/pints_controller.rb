@@ -10,6 +10,7 @@ class PintsController < ApplicationController
   def show
   end
 
+
   def new
     @pint = current_user.pints.build
   end
