@@ -41,7 +41,6 @@ gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails'
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap'
-gem 'remotipart', '~> 1.2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
