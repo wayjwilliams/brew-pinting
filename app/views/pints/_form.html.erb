@@ -2,14 +2,13 @@
   <% if @pint.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pint.errors.count, "error") %> prohibited this pub from being saved:</h2>
-
       <ul>
-      <% @pint.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @pint.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
   <div class="form-group">
     <%= f.label :image %>
@@ -20,6 +19,6 @@
     <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.submit "Create Pub", class: 'btn btn-primary' %>
+    <%= f.submit "PUBlish", class: 'btn btn-primary' %>
   </div>
 <% end %>
